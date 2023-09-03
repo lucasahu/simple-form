@@ -1,0 +1,22 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main > form{
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    border-radius: 10px;
+    padding: 20px;
+    height: 400px;
+    width: 300px;
+    box-shadow: 1px 1px 1px 1px;
+}
