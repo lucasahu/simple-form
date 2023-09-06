@@ -8,15 +8,54 @@ html, body {
     justify-content: center;
 }
 
-.main > form{
+body {
+    background-color: black;
+}
+
+
+.main > form {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 .main {
+    background-color: white;
     border-radius: 10px;
     padding: 20px;
     height: 400px;
     width: 300px;
     box-shadow: 1px 1px 1px 1px;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-row {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+input:valid {
+    transition: 1s;
+    border: 2px solid rgba(0, 128, 0, 0.747);
+    border-radius: 5px;
+}
+
+input:invalid {
+    transition: 1s;
+    border: 2px solid rgba(255, 0, 0, 0.705);
+    border-radius: 5px;
+}
+
+form input:not(:focus):valid, form input:not(:focus):invalid {
+    border: 2px solid rgba(0, 0, 0, 0.24);
 }
