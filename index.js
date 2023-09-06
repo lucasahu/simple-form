@@ -80,6 +80,19 @@ function maxValue() {
     }
 }
 
+function passwordMatch() {
+    if (this.value !== password.value) {
+        this.setCustomValidity('Passwords must match!');
+        this.reportValidity();
+    }
+}
+
+function successCheck() {
+    if (email.validity.valid && country.validity.valid && zipCode.validity.valid && password.validity.valid && confirmPassword.value === password.value) {
+        console.log('success');
+    }
+}
+
 function validator() {
     checkEmpty.bind(this)();
     checkType.bind(this)();
@@ -99,18 +112,19 @@ function validateAll() {
     checkType.bind(country)();
     checkEmpty.bind(email)();
     checkType.bind(email)();
+    successCheck();
 }
 
 function finalCheck() {
     validateAll();
 }
 
-//Have to figure out an event that fits best for the intended effect
+//Have to figure out how to arrange validation functions into modules and make it work.
 
 email.addEventListener('input', validator);
 country.addEventListener('input', validator);
 zipCode.addEventListener('input', validator);
 password.addEventListener('input', validator);
 confirmPassword.addEventListener('input', validator);
-
+confirmPassword.addEventListener('input', passwordMatch);
 submitButton.addEventListener('click', finalCheck);
