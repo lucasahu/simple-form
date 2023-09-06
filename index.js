@@ -6,7 +6,7 @@ const password = document.getElementById('password');
 const confirmPassword = document.getElementById('confirm-password');
 const submitButton = document.getElementById('submit-button');
 
-function emptyError() {
+function emptyErrorGenerator() {
     switch (this) {
         case email:
             this.setCustomValidity('Email address is required!');
@@ -26,7 +26,7 @@ function emptyError() {
     }
 }
 
-function typeError() {
+function typeErrorGenerator() {
     switch (this) {
         case email:
             this.setCustomValidity('Please enter a valid email address!');
@@ -49,7 +49,7 @@ function typeError() {
 
 function checkEmpty() {
     if (this.validity.valueMissing === true) {
-        emptyError.bind(this)();
+        emptyErrorGenerator.bind(this)();
         this.reportValidity();
     } else {
         this.setCustomValidity('');
@@ -58,12 +58,12 @@ function checkEmpty() {
 
 function checkType() {
     if (this.validity.typeMismatch === true) {
-        typeError.bind(this)();
+        typeErrorGenerator.bind(this)();
         this.reportValidity();
     }
 }
 
-function range() {
+function checkRange() {
     if (this.validity.tooLong === true) {
         this.setCustomValidity('Password must be under 10 characters long');
         this.reportValidity();
@@ -73,21 +73,21 @@ function range() {
     }
 }
 
-function maxValue() {
+function checkValue() {
     if (this.validity.rangeOverflow === true) {
         this.setCustomValidity('Enter a valid zip code');
         this.reportValidity();
     }
 }
 
-function passwordMatch() {
+function checkPasswordMatch() {
     if (this.value !== password.value) {
         this.setCustomValidity('Passwords must match!');
         this.reportValidity();
     }
 }
 
-function successCheck() {
+function successTest() {
     if (email.validity.valid && country.validity.valid && zipCode.validity.valid && password.validity.valid && confirmPassword.value === password.value) {
         console.log('success');
     }
@@ -96,8 +96,8 @@ function successCheck() {
 function validator() {
     checkEmpty.bind(this)();
     checkType.bind(this)();
-    range.bind(this)();
-    maxValue.bind(this)();
+    checkRange.bind(this)();
+    checkValue.bind(this)();
 }
 
 function validateAll() {
@@ -107,7 +107,7 @@ function validateAll() {
     checkType.bind(password)();
     checkEmpty.bind(zipCode)();
     checkType.bind(zipCode)();
-    maxValue.bind(zipCode)();
+    checkValue.bind(zipCode)();
     checkEmpty.bind(country)();
     checkType.bind(country)();
     checkEmpty.bind(email)();
@@ -126,5 +126,5 @@ country.addEventListener('input', validator);
 zipCode.addEventListener('input', validator);
 password.addEventListener('input', validator);
 confirmPassword.addEventListener('input', validator);
-confirmPassword.addEventListener('input', passwordMatch);
+confirmPassword.addEventListener('input', checkPasswordMatch);
 submitButton.addEventListener('click', finalCheck);
