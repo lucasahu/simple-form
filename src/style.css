@@ -1,3 +1,5 @@
+/* have to improve styling on the form and success prompt */
+
 html, body {
     margin: 0;
     padding: 0;
@@ -58,4 +60,27 @@ input:invalid {
 
 form input:not(:focus):valid, form input:not(:focus):invalid {
     border: 2px solid rgba(0, 0, 0, 0.24);
+}
+
+.success-prompt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    height: 300px;
+    width: 200px;
+    box-shadow: 1px 1px 1px 1px;
+}
+
+.foreground {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
 }

@@ -3,7 +3,9 @@ import { checkPasswordMatch } from "./modules/checkPasswordMatch";
 import { checkRange } from "./modules/checkRange";
 import { checkType } from "./modules/checkType";
 import { checkValue } from "./modules/checkValue";
-import { successTest } from "./modules/successTest";
+import { successPrompt } from "./components/successPrompt";
+import { foreground } from "./components/foreground";
+
 import "./style.css";
 
 const form = document.getElementById('form-element');
@@ -13,6 +15,20 @@ const zipCode = document.getElementById('zip-code');
 const password = document.getElementById('password');
 const confirmPassword = document.getElementById('confirm-password');
 const submitButton = document.getElementById('submit-button');
+
+function reloadPage() {
+    location.reload();
+}
+
+function successTest() {
+    if (email.validity.valid && country.validity.valid && zipCode.validity.valid && password.validity.valid && confirmPassword.value === password.value) {
+        const body = document.querySelector('body');
+        body.appendChild(foreground);
+        foreground.appendChild(successPrompt);
+        const successBtn = document.querySelector('.success-button');
+        successBtn.addEventListener('click', reloadPage);
+    }
+}
 
 function validator() {
     checkEmpty.bind(this)();
@@ -38,8 +54,6 @@ function validateAll() {
 function finalCheck() {
     validateAll();
 }
-
-//Have to figure out how to arrange validation functions into modules and make it work.
 
 email.addEventListener('input', validator);
 country.addEventListener('input', validator);

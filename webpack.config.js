@@ -11,7 +11,7 @@ module.exports = {
     checkValue: './src/modules/checkValue.js',
     emptyErrorGenerator: './src/modules/emptyErrorGenerator.js',
     typeErrorGenerator: './src/modules/typeErrorGenerator.js',
-    successTest: './src/modules/successTest.js'
+    successPrompt: './src/components/successPrompt.js'
   },
   devtool: 'inline-source-map',
   output: {
