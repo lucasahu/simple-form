@@ -1,12 +1,10 @@
-import { checkEmpty } from "./modules/checkEmpty"
-import { checkPasswordMatch } from "./modules/checkPasswordMatch"
-import { checkRange } from "./modules/checkRange"
-import { checkType } from "./modules/checkType"
-import { checkValue } from "./modules/checkValue"
-import { emptyErrorGenerator } from "./modules/emptyErrorGenerator"
-import { typeErrorGenerator } from "./modules/typeErrorGenerator"
-import { successTest } from "./modules/successTest"
-import { successPromt } from "./components/successPromt"
+import { checkEmpty } from "./modules/checkEmpty";
+import { checkPasswordMatch } from "./modules/checkPasswordMatch";
+import { checkRange } from "./modules/checkRange";
+import { checkType } from "./modules/checkType";
+import { checkValue } from "./modules/checkValue";
+import { successTest } from "./modules/successTest";
+import "./style.css";
 
 
 const form = document.getElementById('form-element');
