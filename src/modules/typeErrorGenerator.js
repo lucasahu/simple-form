@@ -1,3 +1,4 @@
+
 function typeErrorGenerator() {
     switch (this) {
         case email:

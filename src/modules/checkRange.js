@@ -1,3 +1,4 @@
+
 function checkRange() {
     if (this.validity.tooLong === true) {
         this.setCustomValidity('Password must be under 10 characters long');

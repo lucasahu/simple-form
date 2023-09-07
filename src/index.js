@@ -6,7 +6,6 @@ import { checkValue } from "./modules/checkValue";
 import { successTest } from "./modules/successTest";
 import "./style.css";
 
-
 const form = document.getElementById('form-element');
 const email = document.getElementById('email');
 const country = document.getElementById('country');
